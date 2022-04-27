@@ -170,7 +170,6 @@ const slides03 = [
     // showpopups: true,
     bounds: [[39.96869, -75.14654], [39.98648, -75.13045]]
   },
-
   {
     title: "Three Vacant Lots near Germantown Ave.",
     content: `
@@ -183,7 +182,6 @@ const slides03 = [
     phase: 'vacantLandZoom',
     showpopups: true,
   },
-
   {
     title: "Vacant Lots and Real Estate Delinquencies",
     content: `
@@ -208,22 +206,18 @@ const slides03 = [
     bounds: [[39.96869, -75.14654], [39.98648, -75.13045]]
   },
   {
-    title: "La Finquita",
+    title: "Cesar Iglesias Community Garden",
     content: `
       Many neighbors of these vacant lots have reasons to try to avoid them
       going into a developer’s hands. In particular, given how long these lots
       have remained empty, many of them lots have been taken care by the
       community around them.
       <br></br>
-      Here, in Kensington, a plot that had turned to a
-      community garden and urban farm by a group of neighbors, dubbed
-      ‘La Finquita’ (the little farm), was purchased and cleared by a developer
-      in 2016, even though it had been cared for by other people since 1988.
-      <br></br>
       <img src='img/slide09_finquita.jpg' alt='Community Garden'>
     `,
-    phase: 'sheriffZoom',
+    phase: 'garden',
     showpopups: true,
+    bounds: [[39.9, -75.35], [40.16, -74.87]]
   },
   {
     title: "Cesar Iglesias Community Garden",
@@ -237,7 +231,8 @@ const slides03 = [
       <br></br>
       <img src='img/slide10_cesar.png' alt='Community Garden'>
     `,
-    phase: 'garden',
+    phase: 'gardenZoom',
+    showpopups: true
   },
   {
     title: "Thank you.",
