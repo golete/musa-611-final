@@ -1,59 +1,128 @@
-const slides = [
-  {
-    title: "Philadelphia",
-    content: `
-      Despite being one of the oldest cities in the US, the city of Philadelphia
-      has the particularity of having a great number of vacant land available,
-      even close to its center core. This phenomenon can be in part attributed
-      to the discriminatory practices of the Home Owners’ Loan Corporation, also
-      known as ‘redlining’, over the middle of the 20th century, which prevented
-      the majority black residents of South, North and West Philly to access
-      loans.
-      <br></br>
-      While much of these areas remained vacant over the last 80 years, this
-      trend is changing as the city’s population continues to grow.
-      `,
-    phase: 'philadelphia',
-    //showpopups: true,
-    bounds: [[39.9, -75.35], [40.16, -74.87]],
-  },
+const slides01 = [
   {
     title: "La Finquita",
     content: `
-      Despite being one of the oldest cities in the US, the city of Philadelphia
-      has the particularity of having a great number of vacant land available,
-      even close to its center core. This phenomenon can be in part attributed
-      to the discriminatory practices of the Home Owners’ Loan Corporation, also
-      known as ‘redlining’, over the middle of the 20th century, which prevented
-      the majority black residents of South, North and West Philly to access
-      loans.
-      <br></br>
-      While much of these areas remained vacant over the last 80 years, this
-      trend is changing as the city’s population continues to grow.
+      Our story begins in a small corner of northeast Philadelphia called
+      La Finquita.
       `,
-    phase: 'philadelphia',
+    phase: 'finquita',
+    showpopups: true,
+    bounds: [[39.9, -75.35], [40.16, -74.87]],
+  },
+  {
+    title: "",
+    content: `
+      La Finquita —Spanish for "the little farm"—was a thriving community garden
+      located on a vacant lot in the Kensington neighborhood of Philadelphia.
+      For decades, La Finquita provided a source of much-needed fresh produce to
+      residents and community members.
+      <br></br>
+      <img src='img/slide09_finquita.jpg' alt='Community Garden'>
+    `,
+    phase: 'finquitaZoom',
+    showpopups: true,
+    //bounds: [[39.9, -75.35], [40.16, -74.87]],
+  },
+  {
+    title: "",
+    content: `
+      ...that is, until the spring of 2019 when La Finquita permanently closed.
+      <br></br>
+      <img src='img/slide02_finquita.png' alt='Empty Lot'>
+      <br></br>
+      If you walk past La Finquita today, you would never know that this empty
+      plot was but a few short years ago a bustling urban garden beloved by
+      community members from all across the neighborhood.
+    `,
+    phase: 'finquitaZoom',
+    //showpopups: true,
+    //bounds: [[39.9, -75.35], [40.16, -74.87]],
+  },
+  {
+    title: "Vacant Lots in Philadelphia",
+    content: `
+      La Finquita is only one of over 27,000 vacant lots across Philadelphia,
+      many of which serve a variety of cherished community uses, from urban
+      gardens to public parks to small side yards.
+      <br></br>
+      In the last several years, however, community assets like La Finquita have
+      faced a growing threat. The City of Philadelphia has been foreclosing on
+      vacant properties in bulk, forcibly selling them via public auction.
+      <br></br> 
+      Often, neighbors who have tended to these properties for years do not find
+      out that they are up for sale until they have already been bought.
+      `,
+    phase: 'vacant',
+    //showpopups: true,
+    bounds: [[39.9, -75.35], [40.16, -74.87]],
+  }
+];
+
+const slides02 = [
+  {
+    title: "Vacant Lots in Philadelphia",
+    content: `
+      La Finquita is only one of over 27,000 vacant lots across Philadelphia,
+      many of which serve a variety of cherished community uses, from urban
+      gardens to public parks to small side yards.
+      <br></br>
+      In the last several years, however, community assets like La Finquita have
+      faced a growing threat. The City of Philadelphia has been foreclosing on
+      vacant properties in bulk, forcibly selling them via public auction.
+      <br></br> 
+      Often, neighbors who have tended to these properties for years do not find
+      out that they are up for sale until they have already been bought.
+      `,
+    phase: 'vacant',
     //showpopups: true,
     bounds: [[39.9, -75.35], [40.16, -74.87]],
   },
-
   {
-    title: "Expanding development",
+    title: "Real Estate Tax Delinquencies",
     content: `
-      Over the last decade, the real estate market in Philadelphia has grown
-      exponentially and continues to do so at an accelerating pace. In 2021 the
-      record number of permits approved by the city tripled those of an average
-      year.
-      <br></br>
-      A great number of apartment buildings, such as the one highlighted
-      here, have popped up over the last years, on many occasions taking
-      advantage of the cheap vacant land available.
-      <br></br>
-      <img src='img/slide01_studios.jpg' alt='Apartment building'>
-    `,
-    phase: 'development',
-    showpopups: true,
+      Of all 27,000 vacant properties in Philadelphia, approximately 29% are
+      tax delinquent. That means that nearly 8,000 vacant properties are at risk
+      of tax foreclosure across Philadelphia.
+      `,
+    phase: 'delinquent',
+    //showpopups: true,
+    bounds: [[39.9, -75.35], [40.16, -74.87]],
   },
+  {
+    title: "US Bank Liens",
+    content: `
+      To complicate matters further, nearly 2,000 vacant properties are
+      encumbered by debt that is held by U.S. Bank. In the late 1990s, the City
+      of Philadelphia faced a school funding crisis, so in a desperate bid to
+      obtain financing, it bundled and securitized thousands of tax liens and
+      sold them to U.S. Bank. As a private financial institution, U.S. Bank can
+      independently initiate foreclosure proceedings, without notice or input
+      from local community members.
+      `,
+    phase: 'usbank',
+    //showpopups: true,
+    bounds: [[39.9, -75.35], [40.16, -74.87]],
+  },
+  {
+    title: "Sheriff Sales",
+    content: `
+      The number of properties sold through a sheriff's sale has skyrocketed in
+      recent years.
+      <br></br>
+      These sales increased exponentially over the decade following the 2008
+      subprime mortgage crisis, rising with the tide of the broader real estate
+      market. Despite a recent dip in sheriff's sales during the coronavirus
+      pandemic, this trend is likely transient since the Philadelphia Sheriff's
+      Office moved auctions online, greatly expanding the pool of potential
+      buyers.
+      `,
+    phase: 'sheriff',
+    //showpopups: true,
+    bounds: [[39.9, -75.35], [40.16, -74.87]],
+  }
+];
 
+const slides03 = [
   {
     title: "...into Majority Minority Neighborhoods",
     content: `
@@ -65,7 +134,6 @@ const slides = [
     // showpopups: true,
     bounds: [[39.9, -75.35], [40.16, -74.87]],
   },
-
   {
     title: "...and into below-median Income Neighborhoods",
     content: `
@@ -78,7 +146,6 @@ const slides = [
     // showpopups: true,
     bounds: [[39.9, -75.35], [40.16, -74.87]],
   },
-
   {
     title: "The development frontier: Kensington",
     content: `
@@ -91,7 +158,6 @@ const slides = [
     // showpopups: true,
     bounds: [[39.96869, -75.14654], [39.98648, -75.13045]]
   },
-
   {
     title: "Vacant Lots in Kensington",
     content: `
@@ -132,35 +198,6 @@ const slides = [
     // showpopups: true,
     bounds: [[39.96869, -75.14654], [39.98648, -75.13045]]
   },
-
-  {
-    title: "Delinquent Properties in Kensington",
-    content: `
-      Kensington is no exemption, as many of the vacant lots remaining are also
-      real estate tax delinquent. This gives developers and edge over individual
-      buyers, since they have the resources to pay debt that would have to be
-      paid on top of the selling price.
-    `,
-    phase: 'delinquent',
-    // showpopups: true,
-    bounds: [[39.96869, -75.14654], [39.98648, -75.13045]]
-  },
-
-  {
-    title: "US Bank Liens in Philadelphia",
-    content: `
-      To further complicate the situation, in an attempt to fund its public
-      schools, in 1995 the City of Philadelphia sold many of the liens (or
-      property debt) owed to them to a private entity: the US Bank of New
-      York. Over the last couple of years, and probably in response to the
-      booming real estate, the US Bank has begun to foreclose on these
-      properties all over the city.
-    `,
-    phase: 'usBank',
-    // showpopups: true,
-    bounds: [[39.9, -75.35], [40.16, -74.87]],
-  },
-
   {
     title: "...and in Kensington",
     content: `
@@ -170,19 +207,6 @@ const slides = [
     // showpopups: true,
     bounds: [[39.96869, -75.14654], [39.98648, -75.13045]]
   },
-
-  {
-    title: "Sheriff Sales",
-    content: `
-      The foreclosures for properties that are tax delinquent take place through
-      a ‘Sheriff Sale’, on which residents of the communities around these lots
-      have no priority or first option to buy.
-    `,
-    phase: 'sheriff',
-    // showpopups: true,
-    bounds: [[39.96869, -75.14654], [39.98648, -75.13045]]
-  },
-
   {
     title: "La Finquita",
     content: `
