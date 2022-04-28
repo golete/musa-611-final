@@ -137,8 +137,7 @@ p {
 .header {
   position: sticky;
   top: 0;
-  /* background: linear-gradient(to bottom, #ffffff, #ffffff00); */
-  background-color:  #ffffffcc;
+  background-color:  #ffffffbf;
   opacity: 1;
   transition: all 1.5s;
   height: 6vh;
@@ -182,7 +181,7 @@ p {
 
 .btn-outline-primary:hover, .btn-outline-primary:focus, .btn-outline-primary:active, .btn-outline-primary.active, .open>.dropdown-toggle.btn-outline-primary {
     color: #fc6203;
-    background-color: #2aa35300;
+    background-color: #2aa353;
     border-color: #fc6203;
 }
 
@@ -204,8 +203,8 @@ p {
   color: #000000;
   padding: 1rem;
   border-radius: 10px;
-  margin-top: 5vh;
-  margin-bottom: 5vh;
+  margin-top: 2vh;
+  margin-bottom: 8vh;
 }
 
 .diagram {
@@ -242,7 +241,7 @@ p {
   background-color: #ffffff;
   border-color: #ffffff;
   border-width: 1px;
-  color: #fc6203;
+  color: #2aa353;
 }
 
 #title-bttn {
@@ -267,4 +266,54 @@ p {
 
 #slide-01 {
   z-index: -2;
+}
+
+
+/* animated arrows for scroll down */
+.arrows {
+	width: 60px;
+	height: 72px;
+	position: static;
+	left: 50%;
+	margin-bottom: 10px;
+	bottom: 20px;
+}
+
+.arrows path {
+	stroke: #ffffffbf;
+	fill: transparent;
+	stroke-width: 1px;
+	animation: arrow 2s infinite;
+	-webkit-animation: arrow 2s infinite;
+}
+
+@keyframes arrow
+{
+0% {opacity:0}
+40% {opacity:1}
+80% {opacity:0}
+100% {opacity:0}
+}
+
+@-webkit-keyframes arrow /*Safari and Chrome*/
+{
+0% {opacity:0}
+40% {opacity:1}
+80% {opacity:0}
+100% {opacity:0}
+}
+
+.arrows path.a1 {
+	animation-delay:-1s;
+	-webkit-animation-delay:-1s; /* Safari 和 Chrome */
+}
+
+.arrows path.a2 {
+	animation-delay:-0.5s;
+	-webkit-animation-delay:-0.5s; /* Safari 和 Chrome */
+}
+
+.arrows path.a3 {
+	animation-delay:0s;
+	-webkit-animation-delay:0s; /* Safari 和 Chrome */
 }

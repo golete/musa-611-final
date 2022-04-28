@@ -8,11 +8,12 @@ const slides01 = [
     phase: 'finquita',
     showpopups: true,
     bounds: [[39.9, -75.35], [40.16, -74.87]],
+    philly: true,
   },
   {
     title: "",
     content: `
-      La Finquita —Spanish for "the little farm"—was a thriving community garden
+      La Finquita —"the little farm" in Spanish—was a thriving community garden
       located on a vacant lot in the Kensington neighborhood of Philadelphia.
       For decades, La Finquita provided a source of much-needed fresh produce to
       residents and community members.
@@ -22,6 +23,7 @@ const slides01 = [
     phase: 'finquitaZoom',
     showpopups: true,
     //bounds: [[39.9, -75.35], [40.16, -74.87]],
+    philly: false,
   },
   {
     title: "",
@@ -37,6 +39,7 @@ const slides01 = [
     phase: 'finquitaZoom',
     //showpopups: true,
     //bounds: [[39.9, -75.35], [40.16, -74.87]],
+    philly: false,
   },
   {
     title: "Vacant Lots in Philadelphia",
@@ -55,6 +58,7 @@ const slides01 = [
     phase: 'vacant',
     //showpopups: true,
     bounds: [[39.9, -75.35], [40.16, -74.87]],
+    philly: true,
   }
 ];
 
@@ -76,6 +80,7 @@ const slides02 = [
     phase: 'vacant',
     //showpopups: true,
     bounds: [[39.9, -75.35], [40.16, -74.87]],
+    philly: true,
   },
   {
     title: "Real Estate Tax Delinquencies",
@@ -87,6 +92,7 @@ const slides02 = [
     phase: 'delinquent',
     //showpopups: true,
     bounds: [[39.9, -75.35], [40.16, -74.87]],
+    philly: true,
   },
   {
     title: "US Bank Liens",
@@ -102,6 +108,7 @@ const slides02 = [
     phase: 'usbank',
     //showpopups: true,
     bounds: [[39.9, -75.35], [40.16, -74.87]],
+    philly: true,
   },
   {
     title: "Sheriff Sales",
@@ -119,10 +126,25 @@ const slides02 = [
     phase: 'sheriff',
     //showpopups: true,
     bounds: [[39.9, -75.35], [40.16, -74.87]],
+    philly: false,
   }
 ];
 
 const slides03 = [
+  {
+    title: "",
+    content: `
+      Our story begins in a small corner of northeast Philadelphia called
+      La Finquita.
+      `,
+    phase: 'finquita',
+    showpopups: true,
+    bounds: [[39.9, -75.35], [40.16, -74.87]],
+    philly: true,
+  }
+];
+
+const slides04 = [
   {
     title: "...into Majority Minority Neighborhoods",
     content: `
@@ -133,6 +155,7 @@ const slides03 = [
     phase: 'minority',
     // showpopups: true,
     bounds: [[39.9, -75.35], [40.16, -74.87]],
+    philly: true,
   },
   {
     title: "...and into below-median Income Neighborhoods",
@@ -145,6 +168,7 @@ const slides03 = [
     phase: 'income',
     // showpopups: true,
     bounds: [[39.9, -75.35], [40.16, -74.87]],
+    philly: true,
   },
   {
     title: "The development frontier: Kensington",
@@ -156,7 +180,8 @@ const slides03 = [
     `,
     phase: 'kensington',
     // showpopups: true,
-    bounds: [[39.96869, -75.14654], [39.98648, -75.13045]]
+    bounds: [[39.96869, -75.14654], [39.98648, -75.13045]],
+    philly: true,
   },
   {
     title: "Vacant Lots in Kensington",
@@ -168,7 +193,8 @@ const slides03 = [
     `,
     phase: 'vacantLand',
     // showpopups: true,
-    bounds: [[39.96869, -75.14654], [39.98648, -75.13045]]
+    bounds: [[39.96869, -75.14654], [39.98648, -75.13045]],
+    philly: true,
   },
   {
     title: "Three Vacant Lots near Germantown Ave.",
@@ -181,6 +207,7 @@ const slides03 = [
     `,
     phase: 'vacantLandZoom',
     showpopups: true,
+    philly: true,
   },
   {
     title: "Vacant Lots and Real Estate Delinquencies",
@@ -194,7 +221,8 @@ const slides03 = [
     `,
     phase: 'vacantLand',
     // showpopups: true,
-    bounds: [[39.96869, -75.14654], [39.98648, -75.13045]]
+    bounds: [[39.96869, -75.14654], [39.98648, -75.13045]],
+    philly: true,
   },
   {
     title: "...and in Kensington",
@@ -203,21 +231,8 @@ const slides03 = [
     `,
     phase: 'usBankZoom',
     // showpopups: true,
-    bounds: [[39.96869, -75.14654], [39.98648, -75.13045]]
-  },
-  {
-    title: "Cesar Iglesias Community Garden",
-    content: `
-      Many neighbors of these vacant lots have reasons to try to avoid them
-      going into a developer’s hands. In particular, given how long these lots
-      have remained empty, many of them lots have been taken care by the
-      community around them.
-      <br></br>
-      <img src='img/slide09_finquita.jpg' alt='Community Garden'>
-    `,
-    phase: 'garden',
-    showpopups: true,
-    bounds: [[39.9, -75.35], [40.16, -74.87]]
+    bounds: [[39.96869, -75.14654], [39.98648, -75.13045]],
+    philly: true,
   },
   {
     title: "Cesar Iglesias Community Garden",
@@ -232,7 +247,8 @@ const slides03 = [
       <img src='img/slide10_cesar.png' alt='Community Garden'>
     `,
     phase: 'gardenZoom',
-    showpopups: true
+    showpopups: true,
+    philly: true,
   },
   {
     title: "Thank you.",
@@ -241,5 +257,6 @@ const slides03 = [
     phase: 'philadelphia',
     //showpopups: true,
     bounds: [[39.9, -75.35], [40.16, -74.87]],
+    philly: true,
   }
 ];

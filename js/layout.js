@@ -12,15 +12,15 @@ const geometryLayer = L.layerGroup().addTo(map);
 // Set empty data collector
 let dataCollection = { features: [] };
 let propertiesCollection = { features: [] };
+let phillyCollection = { features: [] };
 
 let markerOptions = {
-  radius: 2,
+  radius: 1,
   fillColor: "#2aa353",
-  fillOpacity: .5,
+  fillOpacity: 0,
   color: "#2aa353",
-  opacity: .5,
+  opacity: .5
 };
-
 
 // Load maps tiles
 L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png', {
@@ -31,6 +31,7 @@ L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x
 const slidesDivs01 = document.querySelector('#slides-01');
 const slidesDivs02 = document.querySelector('#slides-02');
 const slidesDivs03 = document.querySelector('#slides-03');
+const slidesDivs04 = document.querySelector('#slides-04');
 
 // 1. ADD TEXT TO SLIDES
 /* takes the text content from slides.js and inserts it into the HTML slide
@@ -47,7 +48,7 @@ function initSlides() {
       </div>
     `);
     slidesDivs01.appendChild(newSlideDiv);
-  }
+  };
 
   slidesDivs02.innerHTML = '';
   for (const [index, slide] of slides02.entries()) {
@@ -58,7 +59,7 @@ function initSlides() {
       </div>
     `);
     slidesDivs02.appendChild(newSlideDiv);
-  }
+  };
 
   slidesDivs03.innerHTML = '';
   for (const [index, slide] of slides03.entries()) {
@@ -69,9 +70,28 @@ function initSlides() {
       </div>
     `);
     slidesDivs03.appendChild(newSlideDiv);
-  }
-}
+  };
 
+  slidesDivs04.innerHTML = '';
+  for (const [index, slide] of slides04.entries()) {
+    const newSlideDiv = htmlToElement(`
+      <div class="slide" id="slide-${index}">
+        <h4>${slide.title}</h4>
+        ${converter.makeHtml(slide.content)}
+      </div>
+    `);
+    slidesDivs04.appendChild(newSlideDiv);
+  };
+
+  for (let div of insertsDivs) {
+      let top = div.offsetTop;
+      let hgt = div.offsetHeight;
+      let bot = top + hgt;
+      insertsBounds.push([top, bot]);
+  };
+
+  insertsBounds[0][0] = -1
+}
 
 
 // 2. ADD MAP GEOMETRY PER SLIDE
@@ -80,23 +100,29 @@ the slide corresponds with phase of the feature */
 
 let specialPhases = ['delinquent', 'usbank', 'sheriff']
 
-function geometryCollection(phase) {
+function geometryCollection(phase, philly) {
+  let collection;
   if (phase === 'vacant') {
-    return {
+    collection =  {
       type: 'FeatureCollection',
       features: propertiesCollection.features,
     };
   } else if (specialPhases.includes(phase)) {
-    return {
+    collection = {
       type: 'FeatureCollection',
       features: propertiesCollection.features.filter(f => f.properties[phase] === 1),
+      phase: phase
     };
   } else {
-    return {
+    collection = {
       type: 'FeatureCollection',
       features: dataCollection.features.filter(f => f.properties.phase === phase),
     };
-  }
+  };
+  if (philly) {
+    collection.features.push(phillyCollection);
+  };
+  return collection;
 };
 
 // updates map with the right geometry for the current slide
@@ -104,8 +130,24 @@ function geometryCollection(phase) {
 geoJSON Layer is returned */
 function updateMap(collection) {
   geometryLayer.clearLayers(); // removes the geometry from the previous slide
-  const geoJsonLayer = L.geoJSON(collection, { pointToLayer: (p, latlng) =>
-    L.circleMarker(latlng, markerOptions) })
+  let color;
+  if (collection.phase === 'delinquent') {
+    color = '#3ca32a';
+  } else if (collection.phase === 'usbank') {
+    color = '#fab12a';
+  } else if (collection.phase === 'sheriff') {
+    color = '#fa842a';
+  } else {
+    color = "#2aa353";
+  };
+  const geoJsonLayer = L.geoJSON(collection, {
+    style: {
+      color: color,
+      fillOpacity: 0,
+      width: 3,
+    },
+    pointToLayer: (p, latlng) => L.circleMarker(latlng, markerOptions)
+  })
     .addTo(geometryLayer);
   console.log('geometry updated!')
   return geoJsonLayer;
@@ -116,13 +158,18 @@ function updateMap(collection) {
 geometry collection function, then updates the map with that geometry using the
 updateMap function*/
 function syncMapToSlide(slide) {
-  const collection = slide.phase ? geometryCollection(slide.phase) : dataCollection;
+  const collection = slide.phase ? geometryCollection(slide.phase, slide.philly) : dataCollection;
   const layer = updateMap(collection);
 
   function handleFlyEnd() {
     if (slide.showpopups) {
       layer.eachLayer(l => {
-        l.bindTooltip(l.feature.properties.label, { permanent: true });
+        l.bindTooltip(l.feature.properties.label, {
+          permanent: true,
+          direction: 'top',
+          offset: [0, -10],
+          opacity: 0.66,
+         });
         l.openTooltip();
       });
     }
@@ -137,7 +184,7 @@ function syncMapToSlide(slide) {
   }
 }
 
-const slides = [...slides01, ...slides02, ...slides03];
+const slides = [...slides01, ...slides02, ...slides03, ...slides04];
 
 // Update map to current slide using the syncMapToSlide function
 function syncMapToCurrentSlide() {
@@ -146,6 +193,8 @@ function syncMapToCurrentSlide() {
 };
 
 const slideCompleteDivs =  document.querySelector('.slide-complete');
+const insertsDivs = document.querySelectorAll('.insert');
+const insertsBounds = [];
 
 // Get position of second section
 const slidesDivs = document.querySelector('.slide');
@@ -153,16 +202,23 @@ const slidesDivsAll = document.getElementsByClassName('slide');
 const titleSectionPos = slideCompleteDivs.children[0].offsetTop
 const footerPos = document.querySelector('body').offsetHeight
 
+
 /* get the index of the slide currently on the window by comparing the scroll
 position to the slides fixed position */
 function compareScrollSlide() {
   const scrollPosition = window.scrollY + window.innerHeight;
 
-  if (window.scrollY > window.innerHeight + titleSectionPos && window.scrollY < 8600) {
-    document.querySelector('.header').classList.remove('hidden')
-  } else {
-    document.querySelector('.header').classList.add('hidden')
+  for (bounds of insertsBounds) {
+    let upperBound = bounds[0] + window.innerHeight;
+    let lowerBound = bounds[1] + (1.5 * window.innerHeight);
+    if (scrollPosition > upperBound && scrollPosition < lowerBound) {
+      document.querySelector('.header').classList.add('hidden');
+      break;
+    } else {
+      document.querySelector('.header').classList.remove('hidden');
+    }
   };
+
 
   let i;
   for (i = 0; i < slidesDivsAll.length; i++) {
@@ -178,9 +234,7 @@ function compareScrollSlide() {
     slideIndex = i - 1;
     syncMapToCurrentSlide();
   }
-  console.log(i);
-  console.log(scrollPosition);
-}
+};
 
 
 
@@ -205,12 +259,23 @@ function loadData() {
      });
   };
 
+  function loadPhilly() {
+    fetch('data/philly.json')
+      .then(resp => resp.json())
+      .then(data => {
+        phillyCollection = data;
+        syncMapToCurrentSlide();
+      });
+   };
+
 // 5. PROGRAM
 let slideIndex = 0;
 // get current slide with scrolling event
 document.addEventListener('scroll', compareScrollSlide);
 
+loadPhilly();
 initSlides();
 syncMapToCurrentSlide();
+
 loadProperties();
 loadData();
