@@ -58,7 +58,7 @@ const slides01 = [
     phase: 'vacant',
     //showpopups: true,
     bounds: [[39.9, -75.35], [40.16, -74.87]],
-    philly: true,
+    philly: false,
   }
 ];
 
@@ -80,7 +80,7 @@ const slides02 = [
     phase: 'vacant',
     //showpopups: true,
     bounds: [[39.9, -75.35], [40.16, -74.87]],
-    philly: true,
+    philly: false,
   },
   {
     title: "Real Estate Tax Delinquencies",
@@ -92,7 +92,7 @@ const slides02 = [
     phase: 'delinquent',
     //showpopups: true,
     bounds: [[39.9, -75.35], [40.16, -74.87]],
-    philly: true,
+    philly: false,
   },
   {
     title: "US Bank Liens",
@@ -108,7 +108,7 @@ const slides02 = [
     phase: 'usbank',
     //showpopups: true,
     bounds: [[39.9, -75.35], [40.16, -74.87]],
-    philly: true,
+    philly: false,
   },
   {
     title: "Sheriff Sales",
@@ -132,10 +132,9 @@ const slides02 = [
 
 const slides03 = [
   {
-    title: "",
+    title: "Permits",
     content: `
-      Our story begins in a small corner of northeast Philadelphia called
-      La Finquita.
+      Placeholder.
       `,
     phase: 'finquita',
     showpopups: true,
@@ -197,19 +196,6 @@ const slides04 = [
     philly: true,
   },
   {
-    title: "Three Vacant Lots near Germantown Ave.",
-    content: `
-      For example, these three vacant plots, close to Germantown Ave., have been
-      engulfed with new apartment buildings on the block they are located, and
-      it is very possible they will soon be built on.
-      <br></br>
-      <img src='img/slide07_germantown.png' alt='Vacant Lot in Germantown'>
-    `,
-    phase: 'vacantLandZoom',
-    showpopups: true,
-    philly: true,
-  },
-  {
     title: "Vacant Lots and Real Estate Delinquencies",
     content: `
       To understand how developers can swiftly obtain these vacant lots, we can
@@ -232,7 +218,7 @@ const slides04 = [
     phase: 'usBankZoom',
     // showpopups: true,
     bounds: [[39.96869, -75.14654], [39.98648, -75.13045]],
-    philly: true,
+    philly: false,
   },
   {
     title: "Cesar Iglesias Community Garden",
@@ -248,7 +234,7 @@ const slides04 = [
     `,
     phase: 'gardenZoom',
     showpopups: true,
-    philly: true,
+    philly: false,
   },
   {
     title: "Thank you.",

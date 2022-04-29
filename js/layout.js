@@ -219,7 +219,6 @@ function compareScrollSlide() {
     }
   };
 
-
   let i;
   for (i = 0; i < slidesDivsAll.length; i++) {
     const slidePosition = slidesDivsAll[i].offsetTop;
@@ -235,8 +234,6 @@ function compareScrollSlide() {
     syncMapToCurrentSlide();
   }
 };
-
-
 
 // 3. ACTUALLY LOAD THE DATA
 /* loads the complete data from all slides and uses the syncMapToCurrentSlide to
