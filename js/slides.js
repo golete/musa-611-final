@@ -9,6 +9,7 @@ const slides01 = [
     showpopups: true,
     bounds: [[39.9, -75.35], [40.16, -74.87]],
     philly: true,
+    emphasis: false,
   },
   {
     title: "",
@@ -24,6 +25,7 @@ const slides01 = [
     showpopups: true,
     //bounds: [[39.9, -75.35], [40.16, -74.87]],
     philly: false,
+    emphasis: false,
   },
   {
     title: "",
@@ -40,6 +42,7 @@ const slides01 = [
     //showpopups: true,
     //bounds: [[39.9, -75.35], [40.16, -74.87]],
     philly: false,
+    emphasis: true,
   },
   {
     title: "Vacant Lots in Philadelphia",
@@ -47,11 +50,11 @@ const slides01 = [
       La Finquita is only one of over 27,000 vacant lots across Philadelphia,
       many of which serve a variety of cherished community uses, from urban
       gardens to public parks to small side yards.
-      <br></br>
+      <br>
       In the last several years, however, community assets like La Finquita have
       faced a growing threat. The City of Philadelphia has been foreclosing on
       vacant properties in bulk, forcibly selling them via public auction.
-      <br></br> 
+      <br>
       Often, neighbors who have tended to these properties for years do not find
       out that they are up for sale until they have already been bought.
       `,
@@ -59,17 +62,14 @@ const slides01 = [
     //showpopups: true,
     bounds: [[39.9, -75.35], [40.16, -74.87]],
     philly: false,
+    emphasis: false,
   }
 ];
 
 const slides02 = [
   {
-    title: "Vacant Lots in Philadelphia",
+    title: "Vacant Lots",
     content: `
-      La Finquita is only one of over 27,000 vacant lots across Philadelphia,
-      many of which serve a variety of cherished community uses, from urban
-      gardens to public parks to small side yards.
-      <br></br>
       In the last several years, however, community assets like La Finquita have
       faced a growing threat. The City of Philadelphia has been foreclosing on
       vacant properties in bulk, forcibly selling them via public auction.
@@ -81,6 +81,7 @@ const slides02 = [
     //showpopups: true,
     bounds: [[39.9, -75.35], [40.16, -74.87]],
     philly: false,
+    emphasis: false,
   },
   {
     title: "Real Estate Tax Delinquencies",
@@ -93,6 +94,7 @@ const slides02 = [
     //showpopups: true,
     bounds: [[39.9, -75.35], [40.16, -74.87]],
     philly: false,
+    emphasis: true,
   },
   {
     title: "US Bank Liens",
@@ -109,6 +111,7 @@ const slides02 = [
     //showpopups: true,
     bounds: [[39.9, -75.35], [40.16, -74.87]],
     philly: false,
+    emphasis: true,
   },
   {
     title: "Sheriff Sales",
@@ -127,6 +130,7 @@ const slides02 = [
     //showpopups: true,
     bounds: [[39.9, -75.35], [40.16, -74.87]],
     philly: false,
+    emphasis: true,
   }
 ];
 
@@ -140,6 +144,7 @@ const slides03 = [
     showpopups: true,
     bounds: [[39.9, -75.35], [40.16, -74.87]],
     philly: true,
+    emphasis: false,
   }
 ];
 
@@ -155,6 +160,7 @@ const slides04 = [
     // showpopups: true,
     bounds: [[39.9, -75.35], [40.16, -74.87]],
     philly: true,
+    emphasis: true,
   },
   {
     title: "...and into below-median Income Neighborhoods",
@@ -168,6 +174,7 @@ const slides04 = [
     // showpopups: true,
     bounds: [[39.9, -75.35], [40.16, -74.87]],
     philly: true,
+    emphasis: true,
   },
   {
     title: "The development frontier: Kensington",
@@ -180,7 +187,8 @@ const slides04 = [
     phase: 'kensington',
     // showpopups: true,
     bounds: [[39.96869, -75.14654], [39.98648, -75.13045]],
-    philly: true,
+    philly: false,
+    emphasis: false,
   },
   {
     title: "Vacant Lots in Kensington",
@@ -194,6 +202,7 @@ const slides04 = [
     // showpopups: true,
     bounds: [[39.96869, -75.14654], [39.98648, -75.13045]],
     philly: true,
+    emphasis: false,
   },
   {
     title: "Vacant Lots and Real Estate Delinquencies",
@@ -209,6 +218,7 @@ const slides04 = [
     // showpopups: true,
     bounds: [[39.96869, -75.14654], [39.98648, -75.13045]],
     philly: true,
+    emphasis: false,
   },
   {
     title: "...and in Kensington",
@@ -219,6 +229,7 @@ const slides04 = [
     // showpopups: true,
     bounds: [[39.96869, -75.14654], [39.98648, -75.13045]],
     philly: false,
+    emphasis: false,
   },
   {
     title: "Cesar Iglesias Community Garden",
@@ -235,6 +246,7 @@ const slides04 = [
     phase: 'gardenZoom',
     showpopups: true,
     philly: false,
+    emphasis: false,
   },
   {
     title: "Thank you.",
@@ -244,5 +256,6 @@ const slides04 = [
     //showpopups: true,
     bounds: [[39.9, -75.35], [40.16, -74.87]],
     philly: true,
+    emphasis: false,
   }
 ];

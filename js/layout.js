@@ -100,7 +100,10 @@ the slide corresponds with phase of the feature */
 
 let specialPhases = ['delinquent', 'usbank', 'sheriff']
 
-function geometryCollection(phase, philly) {
+function geometryCollection(slide) {
+  let phase = slide.phase;
+  let philly = slide.philly;
+  let emphasis = slide.emphasis;
   let collection;
   if (phase === 'vacant') {
     collection =  {
@@ -117,6 +120,7 @@ function geometryCollection(phase, philly) {
     collection = {
       type: 'FeatureCollection',
       features: dataCollection.features.filter(f => f.properties.phase === phase),
+      emphasis: emphasis,
     };
   };
   if (philly) {
@@ -131,6 +135,7 @@ geoJSON Layer is returned */
 function updateMap(collection) {
   geometryLayer.clearLayers(); // removes the geometry from the previous slide
   let color;
+  let fillOpacity;
   if (collection.phase === 'delinquent') {
     color = '#3ca32a';
   } else if (collection.phase === 'usbank') {
@@ -140,10 +145,20 @@ function updateMap(collection) {
   } else {
     color = "#2aa353";
   };
+
+  console.log(collection);
+
+  if (collection.emphasis) {
+    fillOpacity = .4;
+    color = '#eb5e34';
+  } else {
+    fillOpacity = 0;
+  };
+
   const geoJsonLayer = L.geoJSON(collection, {
     style: {
       color: color,
-      fillOpacity: 0,
+      fillOpacity: fillOpacity,
       width: 3,
     },
     pointToLayer: (p, latlng) => L.circleMarker(latlng, markerOptions)
@@ -158,7 +173,7 @@ function updateMap(collection) {
 geometry collection function, then updates the map with that geometry using the
 updateMap function*/
 function syncMapToSlide(slide) {
-  const collection = slide.phase ? geometryCollection(slide.phase, slide.philly) : dataCollection;
+  const collection = slide.phase ? geometryCollection(slide) : dataCollection;
   const layer = updateMap(collection);
 
   function handleFlyEnd() {
