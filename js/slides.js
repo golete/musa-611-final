@@ -1,5 +1,15 @@
 const slides01 = [
   {
+    title: "",
+    content: `
+      `,
+    phase: 'philadelphia',
+    showpopups: true,
+    bounds: [[39.9, -75.35], [40.16, -74.87]],
+    philly: true,
+    emphasis: false,
+  },
+  {
     title: "La Finquita",
     content: `
       Our story begins in a small corner of northeast Philadelphia called
@@ -23,14 +33,16 @@ const slides01 = [
     `,
     phase: 'finquitaZoom',
     showpopups: true,
-    //bounds: [[39.9, -75.35], [40.16, -74.87]],
+    // bounds: [[39.9, -75.35], [40.16, -74.87]],
     philly: false,
     emphasis: false,
   },
   {
     title: "",
     content: `
-      ...that is, until the spring of 2019 when La Finquita permanently closed.
+      ...that is, until the spring of 2019 when La Finquita <a href='https://
+      whyy.org/articles/how-one-urban-farm-was-lost-la-finquitas-finale/'>
+      permanently closed.</a>
       <br></br>
       <img src='img/slide02_finquita.png' alt='Empty Lot'>
       <br></br>
@@ -39,27 +51,27 @@ const slides01 = [
       community members from all across the neighborhood.
     `,
     phase: 'finquitaZoom',
-    //showpopups: true,
-    //bounds: [[39.9, -75.35], [40.16, -74.87]],
+    // showpopups: true,
+    // bounds: [[39.9, -75.35], [40.16, -74.87]],
     philly: false,
     emphasis: true,
   },
   {
     title: "Vacant Lots in Philadelphia",
     content: `
-      La Finquita is only one of over 27,000 vacant lots across Philadelphia,
-      many of which serve a variety of cherished community uses, from urban
-      gardens to public parks to small side yards.
-      <br>
-      In the last several years, however, community assets like La Finquita have
-      faced a growing threat. The City of Philadelphia has been foreclosing on
-      vacant properties in bulk, forcibly selling them via public auction.
-      <br>
-      Often, neighbors who have tended to these properties for years do not find
-      out that they are up for sale until they have already been bought.
+      La Finquita is only one of over <b>27,000</b> vacant lots across
+      Philadelphia, many of which serve a variety of cherished community uses,
+      from urban gardens to public parks to small side yards.
+      <br></br>Over the last several years, however, community assets like La
+      Finquita have faced a growing threat. The City of Philadelphia has been
+      foreclosing on vacant properties in bulk, forcibly selling them via public
+      auction.
+      <br></br>Often, neighbors who have tended to these properties for years do
+      not find out that they are up for sale until they have already been
+      bought.
       `,
     phase: 'vacant',
-    //showpopups: true,
+    // showpopups: true,
     bounds: [[39.9, -75.35], [40.16, -74.87]],
     philly: false,
     emphasis: false,
@@ -70,15 +82,18 @@ const slides02 = [
   {
     title: "Vacant Lots",
     content: `
-      In the last several years, however, community assets like La Finquita have
-      faced a growing threat. The City of Philadelphia has been foreclosing on
-      vacant properties in bulk, forcibly selling them via public auction.
-      <br></br> 
-      Often, neighbors who have tended to these properties for years do not find
-      out that they are up for sale until they have already been bought.
+      <img src='img/points-02.png' class='points' alt='diagram of vacant lots'>
+      <br>Of the more than <b>580,000</b> properties in Philadelphia, around
+      <b>4,79%</b> or <b>27,000</b> of them were vacant in 2021.
+      <br></br>
+      However, many of these properties are bound to be developed soon, as
+      Philadelphia's booming real estate <a href="https://whyy.org/articles/phil
+      ly-is-on-track-to-build-a-record-number-of-apartments-in-2022-analyst-says
+      /">continues to accelerate</a>, driven by the coming changes on the
+      City's 10-year tax abatement for new construction.
       `,
     phase: 'vacant',
-    //showpopups: true,
+    // showpopups: true,
     bounds: [[39.9, -75.35], [40.16, -74.87]],
     philly: false,
     emphasis: false,
@@ -86,12 +101,14 @@ const slides02 = [
   {
     title: "Real Estate Tax Delinquencies",
     content: `
-      Of all 27,000 vacant properties in Philadelphia, approximately 29% are
-      tax delinquent. That means that nearly 8,000 vacant properties are at risk
-      of tax foreclosure across Philadelphia.
+      <img src='img/points-03.png' class='points' alt='diagram of delinquencies'>
+      <br>
+      Of all <b>27,000</b> vacant properties in Philadelphia, approximately
+      <b>26,7%</b> are tax delinquent. That means that nearly <b>7,500</b>
+      vacant properties are at risk of tax foreclosure across Philadelphia.
       `,
     phase: 'delinquent',
-    //showpopups: true,
+    // showpopups: true,
     bounds: [[39.9, -75.35], [40.16, -74.87]],
     philly: false,
     emphasis: true,
@@ -99,16 +116,19 @@ const slides02 = [
   {
     title: "US Bank Liens",
     content: `
-      To complicate matters further, nearly 2,000 vacant properties are
-      encumbered by debt that is held by U.S. Bank. In the late 1990s, the City
-      of Philadelphia faced a school funding crisis, so in a desperate bid to
-      obtain financing, it bundled and securitized thousands of tax liens and
-      sold them to U.S. Bank. As a private financial institution, U.S. Bank can
-      independently initiate foreclosure proceedings, without notice or input
-      from local community members.
+      <img src='img/points-04.png' class='points' alt='diagram us bank liens'>
+      To complicate matters further, more than <b>2,000</b> vacant properties
+      are encumbered by debt that is held by U.S. Bank. In the late 1990s, the
+      City of Philadelphia faced a school funding crisis, so in a desperate bid
+      to obtain financing, it bundled and securitized thousands of tax liens and
+      <a href='https://www.inquirer.com/news/philadelphia-community-garden-tax-l
+      ien-us-bank-gentrification-20211006.html'>sold them to U.S. Bank</a>. As
+      a private financial institution, U.S. Bank can independently initiate
+      foreclosure proceedings, without notice or input from local community
+      members.
       `,
     phase: 'usbank',
-    //showpopups: true,
+    // showpopups: true,
     bounds: [[39.9, -75.35], [40.16, -74.87]],
     philly: false,
     emphasis: true,
@@ -116,10 +136,12 @@ const slides02 = [
   {
     title: "Sheriff Sales",
     content: `
-      The number of properties sold through a sheriff's sale has skyrocketed in
-      recent years.
+      <img src='img/points-05C.png' class='points' alt='diagram of sheriff sales
+      '>At least <b>18,000</b> properties throughout the City of Philadelphia
+      have been sold or are scheduled to be sold at a Sheriff Sale. This number
+      has skyrocketed in recent years.
       <br></br>
-      These sales increased exponentially over the decade following the 2008
+      Sheriff sales increased exponentially over the decade following the 2008
       subprime mortgage crisis, rising with the tide of the broader real estate
       market. Despite a recent dip in sheriff's sales during the coronavirus
       pandemic, this trend is likely transient since the Philadelphia Sheriff's
@@ -127,7 +149,7 @@ const slides02 = [
       buyers.
       `,
     phase: 'sheriff',
-    //showpopups: true,
+    // showpopups: true,
     bounds: [[39.9, -75.35], [40.16, -74.87]],
     philly: false,
     emphasis: true,
@@ -136,25 +158,81 @@ const slides02 = [
 
 const slides03 = [
   {
-    title: "Permits",
+    title: "",
     content: `
       Placeholder.
       `,
-    phase: 'finquita',
-    showpopups: true,
+    phase: 'permits',
+    year: 2007,
     bounds: [[39.9, -75.35], [40.16, -74.87]],
-    philly: true,
+    philly: false,
+    emphasis: false,
+  },
+  {
+    title: "Zoning permits in 2007",
+    content: `
+      In 2007 the City of Philadelphia issued <b>2586</b> Zoning Permits related
+      to new constructions or demolitions. Over the next few years this number
+      would take a dip due to the subprime mortgage crisis, before bouncing
+      back around 2012. In this period there is not a significantly
+      distinguishable clustering of permits.
+      `,
+    phase: 'permits',
+    year: 2007,
+    bounds: [[39.9, -75.35], [40.16, -74.87]],
+    philly: false,
+    emphasis: false,
+  },
+  {
+    title: "...in 2012",
+    content: `
+      After the crisis, permits rose back to a total of <b>2521</b> in the year
+      2012. Now, development activity seemed to cluster more clearly around
+      three hotspots outside the city center: the Graduate Hospital-Point
+      Breeze area in the south east center, the Northern Liberties-Fishtown
+      neighborhoods in the north east and the area west of Broad Street between
+      Fairmount and Cecil B. Moore Ave.
+      `,
+    phase: 'permits',
+    year: 2012,
+    bounds: [[39.9, -75.35], [40.16, -74.87]],
+    philly: false,
+    emphasis: false,
+  },
+  {
+    title: "...and in 2017",
+    content: `
+      Cut to 2017, the number of Zoning permits of these types rose to <b>3234
+      </b> with a clear outward expansion of the previously mentioned clusters
+      well into the Kensington, Point Breeze and Fairmount neighborhoods.
+      `,
+    phase: 'permits',
+    year: 2017,
+    bounds: [[39.9, -75.35], [40.16, -74.87]],
+    philly: false,
     emphasis: false,
   }
 ];
 
 const slides04 = [
   {
+    title: "",
+    content: `
+      `,
+    phase: 'minority',
+    // showpopups: true,
+    bounds: [[39.9, -75.35], [40.16, -74.87]],
+    philly: true,
+    emphasis: false,
+  },
+  {
     title: "...into Majority Minority Neighborhoods",
     content: `
-      However, when we put this into perspective, it is evident that this
-      development is expanding towards neighborhoods whose residents are mostly
-      part of a racial minority.
+      Because vacant properties tend to cluster in specific neighborhoods, the
+      impact of the rise in tax foreclosures is disparate across demographic
+      categories. Areas that have a <b>majority non-white population</b>
+      contain a far greater share of vacant and tax delinquent properties than
+      those that are majority white.
     `,
     phase: 'minority',
     // showpopups: true,
@@ -163,12 +241,13 @@ const slides04 = [
     emphasis: true,
   },
   {
-    title: "...and into below-median Income Neighborhoods",
+    title: "...and Below-Median Income Neighborhoods",
     content: `
-      And also, below the median household income in Philadelphia. This presents
-      the risk that these residents, most of whom have long lived in these
-      neighborhoods, and who mostly do not own their homes, could be displaced
-      by rising rents and predatory development practices.
+      Similarly, areas that have a population lying below the median income
+      line contain more vacant and tax delinquent properties than those lying
+      above the median income line. These demographic patterns show that when
+      the City of Philadelphia or U.S. Bank decides to foreclose on a vacant
+      property, the impact is not felt equally across demographic groups.
     `,
     phase: 'income',
     // showpopups: true,
@@ -180,9 +259,9 @@ const slides04 = [
     title: "The development frontier: Kensington",
     content: `
       A neighborhood representative of this change is Kensington, in north
-      Philadelphia. Here, new development has poured into the neighborhood from
-      the east (coming from Fishtown) and the south (coming from the intensively
-      densified Northern Liberties).
+      Philadelphia. Here, new development has encroached the neighborhood,
+      coming from the Fishtown and Northern Liberties on its east and south
+      ends, respectively.
     `,
     phase: 'kensington',
     // showpopups: true,
@@ -193,40 +272,30 @@ const slides04 = [
   {
     title: "Vacant Lots in Kensington",
     content: `
-      By looking at the available vacant lots remaining in Kensington, it is
-      possible to devise how the south-east half of the neighborhood lots have
-      been developed and most of the available ones remain at the north-west
-      end.
+      The effects of this development wave can be observed in the spatial
+      distribution of the available vacant lots in Kensington, the majority of
+      which are concentrated in the the north-west half of the neighborhood,
+      while there are just a few remaining ones on the south-east half.
     `,
     phase: 'vacantLand',
     // showpopups: true,
     bounds: [[39.96869, -75.14654], [39.98648, -75.13045]],
-    philly: true,
+    philly: false,
     emphasis: false,
   },
   {
-    title: "Vacant Lots and Real Estate Delinquencies",
+    title: "Community ammenities",
     content: `
-      To understand how developers can swiftly obtain these vacant lots, we can
-      observe that many of them are tax delinquent, due to unpaid Real Estate
-      Taxes to the City of Philadelphia.
+      The same is true for the community ammenities that occupy these lots.
       <br></br>
-      Much of these properties have accumulated debt over decades because their
-      owners had no interest or opportunity to sell or built on them.
+      La Finquita, the community garden where our story started, was one of
+      these delinquent vacant lots in Kensington, until it was foreclosed and
+      sold. Many other properties that have been tended by their neighbors over
+      the last years or decades may face the same fate if no action is taken to
+      protect them.
     `,
-    phase: 'vacantLand',
-    // showpopups: true,
-    bounds: [[39.96869, -75.14654], [39.98648, -75.13045]],
-    philly: true,
-    emphasis: false,
-  },
-  {
-    title: "...and in Kensington",
-    content: `
-      Kensington is no exemption to these foreclosures.
-    `,
-    phase: 'usBankZoom',
-    // showpopups: true,
+    phase: 'garden',
+    showpopups: true,
     bounds: [[39.96869, -75.14654], [39.98648, -75.13045]],
     philly: false,
     emphasis: false,
@@ -234,28 +303,18 @@ const slides04 = [
   {
     title: "Cesar Iglesias Community Garden",
     content: `
-      Across Philadelphia, many other thriving community gardens exist on
-      delinquent vacant land owned by the US Bank or the City. Further north and
-      behind the ‘development wave’ process, a group of neighbors is fighting to
-      keep the Cesar Andreu Community Garden theirs. The garden was opened in
-      2012 but has recently been partially bought by a private developer and is
-      at risk of being closed.
-      <br></br>
-      <img src='img/slide10_cesar.png' alt='Community Garden'>
+     In Kensington, further north from La Finquita, a group of neighbors is
+     fighting to <a href="https://www.inquirer.com/news/north-philadelphia-west-
+     kensington-iglesias-garden-20210528.html">keep the Cesar Andreu Community
+     Garden theirs</a>. The garden was opened in 2012 but recently was
+     partially bought by a private developer and is now at risk of being shut
+     down.
+     <br></br>
+     <img src='img/slide10_cesar.png' alt='Community Garden'>
     `,
     phase: 'gardenZoom',
     showpopups: true,
     philly: false,
-    emphasis: false,
-  },
-  {
-    title: "Thank you.",
-    content: `
-      `,
-    phase: 'philadelphia',
-    //showpopups: true,
-    bounds: [[39.9, -75.35], [40.16, -74.87]],
-    philly: true,
     emphasis: false,
   }
 ];

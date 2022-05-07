@@ -12,6 +12,7 @@ const geometryLayer = L.layerGroup().addTo(map);
 // Set empty data collector
 let dataCollection = { features: [] };
 let propertiesCollection = { features: [] };
+let permitsCollection = { features: [] };
 let phillyCollection = { features: [] };
 
 let markerOptions = {
@@ -19,7 +20,7 @@ let markerOptions = {
   fillColor: "#2aa353",
   fillOpacity: 0,
   color: "#2aa353",
-  opacity: .5
+  opacity: 0.5
 };
 
 // Load maps tiles
@@ -35,62 +36,63 @@ const slidesDivs04 = document.querySelector('#slides-04');
 
 // 1. ADD TEXT TO SLIDES
 /* takes the text content from slides.js and inserts it into the HTML slide
-elements*/
+elements */
 function initSlides() {
   const converter = new showdown.Converter({ smartIndentationFix: true });
 
   slidesDivs01.innerHTML = '';
   for (const [index, slide] of slides01.entries()) {
     const newSlideDiv = htmlToElement(`
-      <div class="slide" id="slide-${index}">
+      <div class="slide" id="slide-1${index}">
         <h4>${slide.title}</h4>
         ${converter.makeHtml(slide.content)}
       </div>
     `);
     slidesDivs01.appendChild(newSlideDiv);
-  };
+  }
 
   slidesDivs02.innerHTML = '';
   for (const [index, slide] of slides02.entries()) {
     const newSlideDiv = htmlToElement(`
-      <div class="slide" id="slide-${index}">
+      <div class="slide" id="slide-2${index}">
         <h4>${slide.title}</h4>
         ${converter.makeHtml(slide.content)}
       </div>
     `);
     slidesDivs02.appendChild(newSlideDiv);
-  };
+  }
 
   slidesDivs03.innerHTML = '';
   for (const [index, slide] of slides03.entries()) {
     const newSlideDiv = htmlToElement(`
-      <div class="slide" id="slide-${index}">
+      <div class="slide" id="slide-3${index}">
         <h4>${slide.title}</h4>
         ${converter.makeHtml(slide.content)}
       </div>
     `);
     slidesDivs03.appendChild(newSlideDiv);
-  };
+  }
 
   slidesDivs04.innerHTML = '';
   for (const [index, slide] of slides04.entries()) {
     const newSlideDiv = htmlToElement(`
-      <div class="slide" id="slide-${index}">
+      <div class="slide" id="slide-4${index}">
         <h4>${slide.title}</h4>
         ${converter.makeHtml(slide.content)}
       </div>
     `);
     slidesDivs04.appendChild(newSlideDiv);
-  };
+  }
 
   for (let div of insertsDivs) {
-      let top = div.offsetTop;
-      let hgt = div.offsetHeight;
-      let bot = top + hgt;
-      insertsBounds.push([top, bot]);
-  };
+    let top = div.offsetTop;
+    let hgt = div.offsetHeight;
+    let bot = top + hgt;
+    insertsBounds.push([top, bot]);
+  }
 
-  insertsBounds[0][0] = -1
+  insertsBounds[0][0] = -1;
+  insertsBounds[insertsBounds.length - 1][1] += 10000;
 }
 
 
@@ -98,36 +100,43 @@ function initSlides() {
 /* selects geometry for each slide from dataCollection by checkin if phase of
 the slide corresponds with phase of the feature */
 
-let specialPhases = ['delinquent', 'usbank', 'sheriff']
+let specialPhases = ['delinquent', 'usbank', 'sheriff'];
 
 function geometryCollection(slide) {
-  let phase = slide.phase;
-  let philly = slide.philly;
-  let emphasis = slide.emphasis;
+  let { phase } = slide;
+  let { philly } = slide;
+  let { emphasis } = slide;
+  let { year } = slide;
   let collection;
   if (phase === 'vacant') {
-    collection =  {
+    collection = {
       type: 'FeatureCollection',
       features: propertiesCollection.features,
+    };
+  } else if (phase === 'permits') {
+    collection = {
+      type: 'FeatureCollection',
+      features: permitsCollection.features.filter(f => f.properties.year === slide.year),
+      year,
     };
   } else if (specialPhases.includes(phase)) {
     collection = {
       type: 'FeatureCollection',
       features: propertiesCollection.features.filter(f => f.properties[phase] === 1),
-      phase: phase
+      phase
     };
   } else {
     collection = {
       type: 'FeatureCollection',
       features: dataCollection.features.filter(f => f.properties.phase === phase),
-      emphasis: emphasis,
+      emphasis,
     };
-  };
+  }
   if (philly) {
     collection.features.push(phillyCollection);
-  };
+  }
   return collection;
-};
+}
 
 // updates map with the right geometry for the current slide
 /* the collected geometry from the geometryCollection function is passed and a
@@ -137,41 +146,43 @@ function updateMap(collection) {
   let color;
   let fillOpacity;
   if (collection.phase === 'delinquent') {
-    color = '#3ca32a';
+    color = '#56a3a4';
   } else if (collection.phase === 'usbank') {
     color = '#fab12a';
   } else if (collection.phase === 'sheriff') {
     color = '#fa842a';
   } else {
     color = "#2aa353";
-  };
-
-  console.log(collection);
+  }
 
   if (collection.emphasis) {
-    fillOpacity = .4;
+    fillOpacity = 0.4;
     color = '#eb5e34';
   } else {
     fillOpacity = 0;
-  };
+  }
+
+  if (collection.year) {
+    color = "#ad3a36";
+  }
 
   const geoJsonLayer = L.geoJSON(collection, {
     style: {
-      color: color,
-      fillOpacity: fillOpacity,
+      color,
+      fillOpacity,
       width: 3,
     },
     pointToLayer: (p, latlng) => L.circleMarker(latlng, markerOptions)
   })
     .addTo(geometryLayer);
-  console.log('geometry updated!')
+  console.log('geometry updated!');
   return geoJsonLayer;
 }
 
 
 /* takes a slide object and returns the geometry for that slide using the
 geometry collection function, then updates the map with that geometry using the
-updateMap function*/
+updateMap function */
 function syncMapToSlide(slide) {
   const collection = slide.phase ? geometryCollection(slide) : dataCollection;
   const layer = updateMap(collection);
@@ -184,7 +195,7 @@ function syncMapToSlide(slide) {
           direction: 'top',
           offset: [0, -10],
           opacity: 0.66,
-         });
+        });
         l.openTooltip();
       });
     }
@@ -205,7 +216,7 @@ const slides = [...slides01, ...slides02, ...slides03, ...slides04];
 function syncMapToCurrentSlide() {
   const currentSlide = slides[slideIndex];
   syncMapToSlide(currentSlide);
-};
+}
 
 const slideCompleteDivs =  document.querySelector('.slide-complete');
 const insertsDivs = document.querySelectorAll('.insert');
@@ -214,8 +225,8 @@ const insertsBounds = [];
 // Get position of second section
 const slidesDivs = document.querySelector('.slide');
 const slidesDivsAll = document.getElementsByClassName('slide');
-const titleSectionPos = slideCompleteDivs.children[0].offsetTop
-const footerPos = document.querySelector('body').offsetHeight
+const titleSectionPos = slideCompleteDivs.children[0].offsetTop;
+const footerPos = document.querySelector('body').offsetHeight;
 
 
 /* get the index of the slide currently on the window by comparing the scroll
@@ -232,7 +243,7 @@ function compareScrollSlide() {
     } else {
       document.querySelector('.header').classList.remove('hidden');
     }
-  };
+  }
 
   let i;
   for (i = 0; i < slidesDivsAll.length; i++) {
@@ -244,41 +255,51 @@ function compareScrollSlide() {
 
   if (i === 0) {
     slideIndex = 0;
-  } else if (slideIndex != i - 1) {
+  } else if (slideIndex !== i - 1) {
     slideIndex = i - 1;
     syncMapToCurrentSlide();
   }
-};
+}
 
 // 3. ACTUALLY LOAD THE DATA
 /* loads the complete data from all slides and uses the syncMapToCurrentSlide to
-update the slides consecutively*/
+update the slides consecutively */
 function loadData() {
   fetch('data/places.json')
-     .then(resp => resp.json())
-     .then(data => {
-       dataCollection = data;
-       syncMapToCurrentSlide();
-     });
- };
+    .then(resp => resp.json())
+    .then(data => {
+      dataCollection = data;
+      syncMapToCurrentSlide();
+    });
+}
 
- function loadProperties() {
-   fetch('data/properties.geojson')
-     .then(resp => resp.json())
-     .then(data => {
-       propertiesCollection = data;
-       syncMapToCurrentSlide();
-     });
-  };
+function loadProperties() {
+  fetch('data/properties.geojson')
+    .then(resp => resp.json())
+    .then(data => {
+      propertiesCollection = data;
+      syncMapToCurrentSlide();
+    });
+}
 
-  function loadPhilly() {
-    fetch('data/philly.json')
-      .then(resp => resp.json())
-      .then(data => {
-        phillyCollection = data;
-        syncMapToCurrentSlide();
-      });
-   };
+function loadPermits() {
+  fetch('data/permits.json')
+    .then(resp => resp.json())
+    .then(data => {
+      permitsCollection = data;
+      syncMapToCurrentSlide();
+    });
+}
+
+function loadPhilly() {
+  fetch('data/philly.json')
+    .then(resp => resp.json())
+    .then(data => {
+      phillyCollection = data;
+      syncMapToCurrentSlide();
+    });
+}
+
 
 // 5. PROGRAM
 let slideIndex = 0;
@@ -290,4 +311,5 @@ initSlides();
 syncMapToCurrentSlide();
 
 loadProperties();
+loadPermits();
 loadData();
