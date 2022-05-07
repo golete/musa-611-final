@@ -231,7 +231,7 @@ p {
 .action-panel {
   display: flex;
   flex-basis: 100%;
-  height: 15rem;
+  height: 25vw;
   width: auto;
   background-color: #2aa353;
   color: #ffffffbf;
@@ -247,8 +247,6 @@ p {
   align-items: center;
   gap: 12px;
 }
-
-
 
 .diagram-container {
   width: 80vw;

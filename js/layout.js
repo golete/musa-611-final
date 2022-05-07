@@ -1,4 +1,5 @@
 /* globals showdown */
+/* global slides01, slides02, slides03, slides04 */
 
 // Define map, canvas renderer and center in Philadelphia
 let map = L.map('map', {
@@ -14,6 +15,11 @@ let dataCollection = { features: [] };
 let propertiesCollection = { features: [] };
 let permitsCollection = { features: [] };
 let phillyCollection = { features: [] };
+
+let slideIndex = 0;
+
+let insertsDivs = document.querySelectorAll('.insert');
+let insertsBounds = [];
 
 let markerOptions = {
   radius: 1,
@@ -34,9 +40,11 @@ const slidesDivs02 = document.querySelector('#slides-02');
 const slidesDivs03 = document.querySelector('#slides-03');
 const slidesDivs04 = document.querySelector('#slides-04');
 
+
 // 1. ADD TEXT TO SLIDES
 /* takes the text content from slides.js and inserts it into the HTML slide
 elements */
+
 function initSlides() {
   const converter = new showdown.Converter({ smartIndentationFix: true });
 
@@ -219,8 +227,6 @@ function syncMapToCurrentSlide() {
 }
 
 const slideCompleteDivs =  document.querySelector('.slide-complete');
-const insertsDivs = document.querySelectorAll('.insert');
-const insertsBounds = [];
 
 // Get position of second section
 const slidesDivs = document.querySelector('.slide');
@@ -234,7 +240,7 @@ position to the slides fixed position */
 function compareScrollSlide() {
   const scrollPosition = window.scrollY + window.innerHeight;
 
-  for (bounds of insertsBounds) {
+  for (let bounds of insertsBounds) {
     let upperBound = bounds[0] + window.innerHeight;
     let lowerBound = bounds[1] + (1.5 * window.innerHeight);
     if (scrollPosition > upperBound && scrollPosition < lowerBound) {
@@ -300,9 +306,8 @@ function loadPhilly() {
     });
 }
 
-
 // 5. PROGRAM
-let slideIndex = 0;
+
 // get current slide with scrolling event
 document.addEventListener('scroll', compareScrollSlide);
 

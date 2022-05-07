@@ -186,12 +186,12 @@ const slides03 = [
   {
     title: "...in 2012",
     content: `
-      After the crisis, permits rose back to a total of <b>2521</b> in the year
-      2012. Now, development activity seemed to cluster more clearly around
-      three hotspots outside the city center: the Graduate Hospital-Point
+      In 2012 permits rose back to a total of <b>2521</b>, rebounding from the
+      effects of the crisis. Now, development activity concentrated clearly
+      around three hotspots outside the city center: the Graduate Hospital-Point
       Breeze area in the south east center, the Northern Liberties-Fishtown
       neighborhoods in the north east and the area west of Broad Street between
-      Fairmount and Cecil B. Moore Ave.
+      Fairmount and Cecil B. Moore Avenue.
       `,
     phase: 'permits',
     year: 2012,
@@ -202,9 +202,10 @@ const slides03 = [
   {
     title: "...and in 2017",
     content: `
-      Cut to 2017, the number of Zoning permits of these types rose to <b>3234
-      </b> with a clear outward expansion of the previously mentioned clusters
-      well into the Kensington, Point Breeze and Fairmount neighborhoods.
+      Cut to 2017, the number of Zoning permits of these types amounted to
+      <b>3234</b> with a clear outward expansion of the previously mentioned
+      clusters well into the Kensington, Point Breeze and Fairmount
+      neighborhoods.
       `,
     phase: 'permits',
     year: 2017,
@@ -258,7 +259,7 @@ const slides04 = [
   {
     title: "The development frontier: Kensington",
     content: `
-      A neighborhood representative of this change is Kensington, in north
+      A lcoation representative of this change is Kensington, in north
       Philadelphia. Here, new development has encroached the neighborhood,
       coming from the Fishtown and Northern Liberties on its east and south
       ends, respectively.
@@ -288,8 +289,8 @@ const slides04 = [
     content: `
       The same is true for the community ammenities that occupy these lots.
       <br></br>
-      La Finquita, the community garden where our story started, was one of
-      these delinquent vacant lots in Kensington, until it was foreclosed and
+      <b>La Finquita</b>, the community garden where our story started, was one
+      of these delinquent vacant lots in Kensington, until it was foreclosed and
       sold. Many other properties that have been tended by their neighbors over
       the last years or decades may face the same fate if no action is taken to
       protect them.
