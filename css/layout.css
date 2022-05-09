@@ -101,17 +101,16 @@ a:hover {
 }
 
 h1 {
-  font-weight: 600;
-  font-size: 7rem;
+  font-weight: 800;
+  font-size: 6rem;
   margin-top: auto;
   margin-bottom: auto;
   width: 100%;
 }
 
 h2 {
-  font-weight: 600;
+  font-weight: 400;
   font-size: 4rem;
-  text-align: center;
 }
 
 h3 {
@@ -139,6 +138,10 @@ h7 {
 
 
 #title {
+  text-align: center;
+}
+
+#subtitle {
   text-align: center;
 }
 

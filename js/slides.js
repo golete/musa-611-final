@@ -83,14 +83,8 @@ const slides02 = [
     title: "Vacant Lots",
     content: `
       <img src='img/points-02.png' class='points' alt='diagram of vacant lots'>
-      <br>Of the more than <b>580,000</b> properties in Philadelphia, around
-      <b>4,79%</b> or <b>27,000</b> of them were vacant in 2021.
-      <br></br>
-      However, many of these properties are bound to be developed soon, as
-      Philadelphia's booming real estate <a href="https://whyy.org/articles/phil
-      ly-is-on-track-to-build-a-record-number-of-apartments-in-2022-analyst-says
-      /">continues to accelerate</a>, driven by the coming changes on the
-      City's 10-year tax abatement for new construction.
+      <br>Of the more than 580,000 properties in Philadelphia, approximately
+      <b>27,000</b> or <b>4.79%</b> were vacant in 2021.
       `,
     phase: 'vacant',
     // showpopups: true,
@@ -104,7 +98,7 @@ const slides02 = [
       <img src='img/points-03.png' class='points' alt='diagram of delinquencies'>
       <br>
       Of all <b>27,000</b> vacant properties in Philadelphia, approximately
-      <b>26,7%</b> are tax delinquent. That means that nearly <b>7,500</b>
+      <b>26.7%</b> are tax delinquent. That means that nearly <b>7,500</b>
       vacant properties are at risk of tax foreclosure across Philadelphia.
       `,
     phase: 'delinquent',
@@ -138,12 +132,12 @@ const slides02 = [
     content: `
       <img src='img/points-05C.png' class='points' alt='diagram of sheriff sales
       '>At least <b>18,000</b> properties throughout the City of Philadelphia
-      have been sold or are scheduled to be sold at a Sheriff Sale. This number
+      have been sold or are scheduled to be sold at a sheriff sale. This number
       has skyrocketed in recent years.
       <br></br>
       Sheriff sales increased exponentially over the decade following the 2008
       subprime mortgage crisis, rising with the tide of the broader real estate
-      market. Despite a recent dip in sheriff's sales during the coronavirus
+      market. Despite a recent dip in sheriff sales during the coronavirus
       pandemic, this trend is likely transient since the Philadelphia Sheriff's
       Office moved auctions online, greatly expanding the pool of potential
       buyers.
@@ -169,13 +163,12 @@ const slides03 = [
     emphasis: false,
   },
   {
-    title: "Zoning permits in 2007",
+    title: "Zoning Permits in 2007",
     content: `
-      In 2007 the City of Philadelphia issued <b>2586</b> Zoning Permits related
-      to new constructions or demolitions. Over the next few years this number
-      would take a dip due to the subprime mortgage crisis, before bouncing
-      back around 2012. In this period there is not a significantly
-      distinguishable clustering of permits.
+      In 2007, the City of Philadelphia issued <b>2586</b> zoning permits related
+      to new construction or demolition. Over the next few years, this number
+      fell likely due to the subprime mortgage crisis of 2008, before bouncing
+      back around 2012.
       `,
     phase: 'permits',
     year: 2007,
@@ -186,12 +179,12 @@ const slides03 = [
   {
     title: "...in 2012",
     content: `
-      In 2012 permits rose back to a total of <b>2521</b>, rebounding from the
-      effects of the crisis. Now, development activity concentrated clearly
-      around three hotspots outside the city center: the Graduate Hospital-Point
-      Breeze area in the south east center, the Northern Liberties-Fishtown
-      neighborhoods in the north east and the area west of Broad Street between
-      Fairmount and Cecil B. Moore Avenue.
+      In 2012, the number of zoning permits returned to pre-Great Recession
+      levels, totalling <b>2521</b>. At that time, development activity
+      concentrated around three hotspots outside the city center: the Graduate
+      Hospital-Point Breeze area to the southeast, the Northern Liberties-
+      Fishtown neighborhoods to the northeast, and the area west of
+      Broad Street between Fairmount and Cecil B. Moore Avenue.
       `,
     phase: 'permits',
     year: 2012,
@@ -202,10 +195,13 @@ const slides03 = [
   {
     title: "...and in 2017",
     content: `
-      Cut to 2017, the number of Zoning permits of these types amounted to
-      <b>3234</b> with a clear outward expansion of the previously mentioned
-      clusters well into the Kensington, Point Breeze and Fairmount
-      neighborhoods.
+      Cut to 2017, the number of zoning permits totaled <b>3234</b> and
+      expanded outwards from previous hotspots and into the Kensington, Point
+      Breeze, and Fairmount neighborhoods.
+      <br></br>
+      Since 2017, development activity has continued to increase and expand
+      outwards into neighborhoods across Philadelphia, including those where
+      vacant lots are in great supply.
       `,
     phase: 'permits',
     year: 2017,
