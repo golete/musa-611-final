@@ -82,9 +82,9 @@ const slides02 = [
   {
     title: "Vacant Lots",
     content: `
-      <img src='img/points-02.png' class='points' alt='diagram of vacant lots'>
+      <img src='img/points-01.png' class='points' alt='diagram of vacant lots'>
       <br>Of the more than 580,000 properties in Philadelphia, approximately
-      <b>27,000</b> or <b>4.79%</b> were vacant in 2021.
+      <b>27,000</b> or <b>4.71%</b> were vacant in 2021.
       `,
     phase: 'vacant',
     // showpopups: true,
@@ -95,7 +95,7 @@ const slides02 = [
   {
     title: "Real Estate Tax Delinquencies",
     content: `
-      <img src='img/points-03.png' class='points' alt='diagram of delinquencies'>
+      <img src='img/points-02.png' class='points' alt='diagram of delinquencies'>
       <br>
       Of all <b>27,000</b> vacant properties in Philadelphia, approximately
       <b>26.7%</b> are tax delinquent. That means that nearly <b>7,500</b>
@@ -110,8 +110,8 @@ const slides02 = [
   {
     title: "US Bank Liens",
     content: `
-      <img src='img/points-04.png' class='points' alt='diagram us bank liens'>
-      To complicate matters further, more than <b>2,000</b> vacant properties
+      <img src='img/points-03.png' class='points' alt='diagram us bank liens'>
+      To complicate matters further, more than <b>1,500</b> vacant properties
       are encumbered by debt that is held by U.S. Bank. In the late 1990s, the
       City of Philadelphia faced a school funding crisis, so in a desperate bid
       to obtain financing, it bundled and securitized thousands of tax liens and
@@ -130,8 +130,8 @@ const slides02 = [
   {
     title: "Sheriff Sales",
     content: `
-      <img src='img/points-05C.png' class='points' alt='diagram of sheriff sales
-      '>At least <b>18,000</b> properties throughout the City of Philadelphia
+      <img src='img/points-04.png' class='points' alt='diagram of sheriff sales
+      '>At least <b>8,750</b> vacant lots throughout the City of Philadelphia
       have been sold or are scheduled to be sold at a sheriff sale. This number
       has skyrocketed in recent years.
       <br></br>
